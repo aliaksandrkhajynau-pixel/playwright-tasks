@@ -16,7 +16,8 @@ test.describe('Поиск элементов по роли "button"', () => {
   // Задание 2: Найди неактивную кнопку используя getByRole с указанием disabled состояния
   // Проверь что кнопка видима и действительно disabled
   test('Найти неактивную кнопку по роли и состоянию', async ({ page }) => {
-    const disabledButton = page.locator('[data-todo="disabledButton"]'); // TODO(student): замените на корректный локатор
+    const disabledButton = page.getByRole('button', { disabled: true }); // TODO(student): замените на корректный локатор
+
     await expect(disabledButton).toBeVisible();
     await expect(disabledButton).toBeDisabled();
   });
@@ -24,7 +25,7 @@ test.describe('Поиск элементов по роли "button"', () => {
   // Задание 3: Найди элемент div с ролью button (не настоящую кнопку)
   // Проверь что элемент видим и содержит текст "Div как кнопка"
   test('Найти div с ролью кнопки', async ({ page }) => {
-    const divButton = page.locator('[data-todo="divButton"]'); // TODO(student): замените на корректный локатор
+    const divButton = page.getByRole('button', { name: 'Div как кнопка' }); // TODO(student): замените на корректный локатор
     await expect(divButton).toBeVisible();
     await expect(divButton).toHaveText('Div как кнопка');
   });
@@ -38,7 +39,7 @@ test.describe('Поиск элементов форм по ролям', () => {
   // Задание 1: Найди поле "Имя пользователя" по роли textbox и связанному label
   // Заполни поле текстом "тестовый_пользователь" и проверь значение
   test('Найти поля формы по их ролям', async ({ page }) => {
-    const usernameInput = page.locator('[data-todo="usernameInput"]'); // TODO(student): замените на корректный локатор
+    const usernameInput = page.getByRole('textbox', { name: 'Имя пользователя' }); // TODO(student): замените на корректный локатор
     await expect(usernameInput).toBeVisible();
     await usernameInput.fill('тестовый_пользователь');
     await expect(usernameInput).toHaveValue('тестовый_пользователь');
@@ -47,7 +48,7 @@ test.describe('Поиск элементов форм по ролям', () => {
   // Задание 2: Найди чекбокс "Подписаться на рассылку" по роли checkbox
   // Проверь что он не выбран, затем выбери его и проверь снова
   test('Найти чекбоксы по роли checkbox', async ({ page }) => {
-    const newsletterCheckbox = page.locator('[data-todo="newsletterCheckbox"]'); // TODO(student): замените на корректный локатор
+    const newsletterCheckbox = page.getByRole('checkbox', { name: 'Подписаться на рассылку' }); // TODO(student): замените на корректный локатор
     await expect(newsletterCheckbox).toBeVisible();
     await expect(newsletterCheckbox).not.toBeChecked();
     await newsletterCheckbox.check();
