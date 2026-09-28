@@ -35,7 +35,7 @@ test.describe('Сложные случаи для getByPlaceholder()', () => {
 
   // Задание 2: Найди поле с пробелами в placeholder
   test('Найти поле с пробелами в placeholder', async ({ page }) => {
-    const spacedInput = page.getByPlaceholder(/ /);
+    const spacedInput = page.getByPlaceholder(/ {2,}/);
     await expect(spacedInput).toBeVisible();
   });
 
