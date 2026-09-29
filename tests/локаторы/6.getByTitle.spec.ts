@@ -63,7 +63,7 @@ test.describe('Сложные случаи и динамический конт�
 
   // Задание 3: Найди изображение по title и проверь его размеры
   test('Найти изображение по title', async ({ page }) => {
-    const image = page.getByTitle('');
+    const image = page.getByTitle('Изображение с подсказкой');
     await expect(image).toBeVisible();
   });
 });
